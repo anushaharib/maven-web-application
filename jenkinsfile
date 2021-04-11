@@ -1,1 +1,34 @@
+node{
+def mavenHome = tool name: "maven3.6.3"
+stage('CheckoutCode')
+{
+git branch: 'development', credentialsId: '3da7516c-4653-4092-ad36-f705da3f48d6', url: 'https://github.com/anushaharib/maven-web-application.git'
+}
+stage('Build')
+{
+sh "${mavenHome}/bin/mvn clean package"
+}
+/*
+stage('ExecuteSonarQubeReport')
+{
+sh "${mavenHome}/bin/mvn sonar:sonar"
+}
+stage('DeployAppIntoTomcatServer')
+{
+sshagent(['ffb3812f-09ff-491f-939e-5d1ecc1088a9']) {
+sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15.207.221.20:/opt/apache-tomcat-9.0.44/webapps
+"
+}
+}
+*/
+stage('SendEmailNotification')
+{
+emailext body: '''Build Over - Scriptedway
 
+Regards,
+Anusha,
+8465878685
+''', subject: 'Build Over - Scriptedway', to: 'yerra.anusha147@gmail.com'
+}
+}
+}
