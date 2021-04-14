@@ -50,18 +50,18 @@ sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15
 }
 post{
 success{
-emailext body: '''Build is over - Declarative way
+emailext body: '''Build is over - Declarative way ..
 
 Regards,
-anusha,
-8465878685''', subject: 'Build is successfull - Declarative way', to: 'yerra.anusha147@gmail.com'
+Anusha,
+8465878685''', subject: 'Build is sucessfull - Declarative way ..', to: 'yerra.anusha147@gmail.com'
 }
 failure{
-emailext body: '''Build is failed - Declarative way
+emailext body: '''Build is failed - Declarative way ..
 
 Regards,
-anusha,
-8465878685''', subject: 'Build is over - Declarative way', to: 'yerra.anusha147@gmail.com'
+Anusha,
+8465878685''', subject: 'Build is over - Declarative way ..', to: 'yerra.anusha147@gmail.com'
 }
 }
 }
