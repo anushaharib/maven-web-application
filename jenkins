@@ -23,8 +23,7 @@ stage('SendEmailNotification')
 emailext body: '''Build Over - Scriptedway
 
 Regards,
-Anusha,
-8465878685
-''', subject: 'Build Over - Scriptedway', to: 'yerra.anusha147@gmail.com'
+anusha,
+8465878685''', subject: 'Build Over - Scriptedway', to: 'anushaharib@gmail.com'
 }
 }
